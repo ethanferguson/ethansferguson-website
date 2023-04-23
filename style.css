@@ -1,0 +1,197 @@
+body {
+    background-color: rgb(237, 237, 237);
+}
+
+h1 {
+    padding-top: 35px;
+    color: #343434;
+    font-size: 55px;
+    text-align: center;
+}
+
+#headerID {
+    text-align: center;
+}
+
+#mainWraper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 800px;
+    margin: 0 auto;
+}
+
+#container {
+    background-color: rgb(220, 220, 220);
+    padding: 35px 0px;
+    width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px
+}
+
+#header {
+    display: flex;
+    width: 650px;
+    justify-content: space-between;
+    padding-bottom: 50px;
+}
+
+#header {
+    display: flex;
+    width: 650px;
+    justify-content: space-between;
+    padding-bottom: 50px;
+}
+
+#month-year {
+    font-size: 28px;
+}
+
+#weekdays {
+    display: grid;
+    font-size: 24px;
+    grid-template-columns: repeat(7, 1fr);
+    width: 90%;
+    text-align: center;
+    padding-bottom: 15px;
+}
+
+#calendar {
+    display: grid;
+    width: 90%;
+    grid-template-columns: repeat(7, 1fr);
+    row-gap: 15px;
+    column-gap: 15px;
+}
+
+.DOW {
+    aspect-ratio: 1 / 1;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    cursor: pointer;
+
+}
+
+.DOW.color1 {
+    background-color: rgb(133, 11, 209);
+    border-radius: 50%;
+    color: white;
+}
+
+.DOW.color2 {
+    background-color: rgb(15, 20, 166);
+    border-radius: 50%;
+    color: white;
+}
+
+.DOW.color1:hover {
+    background-color: rgb(133, 11, 209);
+}
+
+.DOW.color2:hover {
+    background-color: rgb(15, 20, 166);
+}
+
+
+.DOW:hover {
+    background-color: rgb(149, 147, 159);
+    border-radius: 50%;
+}
+
+#prevNextBttns {
+    background-color: #343434;
+    border: none;
+    color: white;
+    padding: 6px 12px;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 17px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition-duration: 0.4s;
+}
+
+#prevNextBttns:hover {
+    background-color: #555555;
+    transition-duration: 0.1s;
+}
+
+#paint {
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 60px;
+    gap: 20px;
+}
+
+.color {
+    aspect-ratio: 1 / 1;
+    padding: 20px 20px;
+    border-radius: 50%;
+    transition-duration: 0.2s;
+    transition-timing-function: ease;
+    /* Add the animation */
+}
+
+.color.selected {
+    border-color: black;
+    border-width: 2px;
+    transform: translate(0, -20px) scale(1.5);
+}
+
+#color1 {
+    background-color: rgb(133, 11, 209);
+}
+
+#color2 {
+    background-color: rgb(15, 20, 166);
+}
+
+#colorTitle {
+    margin-top: 15px;
+    text-transform: uppercase;
+    color: rgb(84, 84, 84);
+    font-family: sans-serif;
+}
+
+@media screen and (max-width: 650px) {
+
+    #headerID {
+        font-size: 32px;
+        padding-bottom: 20px;
+    }
+
+    #header {
+        width: 90%;
+        padding-bottom: 25px;
+    }
+
+    #mainWraper {
+        width: 100%;
+    }
+
+    #container {
+        width: 100%;
+    }
+
+    #weekdays {
+        font-size: 18px;
+    }
+
+    .DOW {
+        font-size: 15px;
+    }
+
+    #calendar {
+        row-gap: 10px;
+        column-gap: 10px;
+    }
+
+}

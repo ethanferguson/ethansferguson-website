@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Calendar Workout Plan </title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h1 id="headerID">Workout Tracker</h1>
+
+    <div id="mainWraper">
+        <div id="container">
+            <div id="header">
+                <div id="month-year"></div>
+                <div id="changeMonthBttns">
+                    <button id="prevNextBttns" onClick="prevMonth()">
+                        < </button>
+                            <button id="prevNextBttns" onClick="nextMonth()"> > </button>
+                </div>
+            </div>
+
+            <div id="weekdays">
+                <div>Sun</div>
+                <div>Mon</div>
+                <div>Tue</div>
+                <div>Wed</div>
+                <div>Thu</div>
+                <div>Fri</div>
+                <div>Sat</div>
+            </div>
+
+            <div id="calendar"></div>
+
+        </div>
+        <div id="paint">
+            <div class="color selected" id="color1"></div>
+            <div class="color" id="color2"></div>
+
+        </div>
+        <div id="colorTitle">Climbing</div>
+
+        <br>
+        <form>
+            <label>Title Text</label>
+            <input type="text" placeholder="Enter text here">
+            <br>
+            <label>Habit #1</label>
+            <input type="text" placeholder="Habit">
+            <br>
+            <label>Habit #2</label>
+            <input type="text" placeholder="Habit 2">
+            <br>
+            <label>Habit #3</label>
+            <input type="text" placeholder="Habit 3">
+            <br>
+            <button type="button" onCLick="updateData()">Update</button>
+        </form>
+    </div>
+
+    <script src="scriptMe.js"></script>
+</body>
+
+</html>
