@@ -14,6 +14,7 @@ let currentHabit = 0;
 loadPage();
 
 function loadPage() {
+    /* Adding clickevents to call various functions */
     const calendar = document.getElementById("calendar");
     calendar.addEventListener(("click"), calendarClick);
     const paint = document.getElementById("paint");
@@ -44,7 +45,7 @@ function loadPage() {
     const habitTitle = document.getElementById("habitTitle");
     habitTitle.textContent = habitText[currentHabit];
 
-    const maintTitle = document.getElementById("headerID");
+    const maintTitle = document.getElementById("mainTitle");
     maintTitle.textContent = habitTitleText;
 
     /* Fill the edit content with current content */
@@ -54,8 +55,6 @@ function loadPage() {
     settingsHabit1.value = habitText[0];
     const settingsHabit2 = document.getElementById("habit2Text");
     settingsHabit2.value = habitText[1];
-
-
 
     loadCalendar(currentMonth, currentYear);
 }
@@ -110,6 +109,7 @@ function loadCalendar(month, year) {
     }
 }
 
+/* called on 'next' month button click */
 function nextMonth() {
     if (displayMonth == 11) {
         displayYear += 1;
@@ -120,6 +120,7 @@ function nextMonth() {
     loadCalendar(displayMonth, displayYear);
 }
 
+/* called on 'prev' month button click */
 function prevMonth() {
     if (displayMonth == 0) {
         displayMonth = 11;
@@ -128,6 +129,7 @@ function prevMonth() {
     else displayMonth = displayMonth - 1;
     loadCalendar(displayMonth, displayYear);
 }
+
 
 function calendarClick(event) {
     const dateClicked = event.target.id;
@@ -162,11 +164,12 @@ function paintClicked(event) {
     }
 }
 
+/* Called when the settings form is submited */
 function updateData() {
 
     /* CHANGE TITLE TEXT */
     const newTitleText = document.getElementById("newTitleText");
-    const title = document.getElementById("headerID");
+    const title = document.getElementById("mainTitle");
     title.textContent = newTitleText.value;
 
     /* CHANGE EACH HABIT TEXT */
@@ -190,6 +193,9 @@ function updateData() {
     }, 300);
 }
 
+/*** Called on 'edit' button click.
+ *   Opens modal with settings.  
+***/
 function openSettings() {
     const modal = document.getElementById("settingsModal");
     modal.style.display = "block";
@@ -198,6 +204,7 @@ function openSettings() {
     }, 100);
 }
 
+/* called with the 'x' on the settings modal is clicked */
 function closeModal() {
     const modal = document.getElementById("settingsModal");
     modal.style.opacity = "0";

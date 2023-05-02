@@ -9,10 +9,6 @@ h1 {
     text-align: center;
 }
 
-#headerID {
-    text-align: center;
-}
-
 #mainWraper {
     display: flex;
     flex-direction: column;
@@ -33,14 +29,11 @@ h1 {
     gap: 15px
 }
 
-#header {
-    display: flex;
-    width: 650px;
-    justify-content: space-between;
-    padding-bottom: 50px;
+#mainTitle {
+    text-align: center;
 }
 
-#header {
+#calendarHeader {
     display: flex;
     width: 650px;
     justify-content: space-between;
@@ -122,43 +115,6 @@ h1 {
 #prevNextBttns:hover {
     background-color: #555555;
     transition-duration: 0.1s;
-}
-
-#paint {
-    display: flex;
-    justify-content: center;
-    margin-top: 60px;
-    gap: 20px;
-}
-
-.color {
-    aspect-ratio: 1 / 1;
-    padding: 20px 20px;
-    border-radius: 50%;
-    transition-duration: 0.2s;
-    transition-timing-function: ease;
-    /* Add the animation */
-}
-
-.color.selected {
-    border-color: black;
-    border-width: 2px;
-    transform: translate(0, -20px) scale(1.5);
-}
-
-#color1 {
-    background-color: rgb(133, 11, 209);
-}
-
-#color2 {
-    background-color: rgb(15, 20, 166);
-}
-
-#habitTitle {
-    margin-top: 15px;
-    text-transform: uppercase;
-    color: rgb(84, 84, 84);
-    font-family: sans-serif;
 }
 
 /*--------------- Settings Modal ---------------*/
@@ -253,6 +209,43 @@ h1 {
     padding: 10px 35px;
     margin-top: 15px;
     float: right;
+}
+
+#paint {
+    display: flex;
+    justify-content: center;
+    margin-top: 60px;
+    gap: 20px;
+}
+
+.color {
+    aspect-ratio: 1 / 1;
+    padding: 20px 20px;
+    border-radius: 50%;
+    transition-duration: 0.2s;
+    transition-timing-function: ease;
+    /* Add the animation */
+}
+
+.color.selected {
+    border-color: black;
+    border-width: 2px;
+    transform: translate(0, -20px) scale(1.5);
+}
+
+#color1 {
+    background-color: rgb(133, 11, 209);
+}
+
+#color2 {
+    background-color: rgb(15, 20, 166);
+}
+
+#habitTitle {
+    margin-top: 15px;
+    text-transform: uppercase;
+    color: rgb(84, 84, 84);
+    font-family: sans-serif;
 }
 
 /*--------------- Mobile Styling Edits ---------------*/
