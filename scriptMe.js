@@ -6,6 +6,10 @@ let daysCompleted = {};
 let displayYear = currentYear;
 let displayMonth = currentMonth;
 let color = "color1";
+let habitTitleText = "Habit Tracker";
+let habitText = ["Habit #1", "habit #2"]
+let habitTextIDs = ["habit1Text", "habit2Text", "habit3Text"]
+let currentHabit = 0;
 
 loadPage();
 
@@ -14,13 +18,46 @@ function loadPage() {
     calendar.addEventListener(("click"), calendarClick);
     const paint = document.getElementById("paint");
     paint.addEventListener(('click'), paintClicked);
+    const modal = document.getElementById("settingsModal");
+    const closeBttn = document.getElementById("closeModal");
+    closeBttn.addEventListener('click', closeModal);
+    const editBttn = document.getElementById("openSettings");
+    editBttn.addEventListener(('click'), openSettings);
+    window.addEventListener(('click'), (event) => {
+        if (event.target === modal) {
+            modal.style.opacity = '0';
+            setTimeout(function () {
+                modal.style.display = 'none';
+            }, 300);
+        }
+    });
 
+    /* Get and set the data from local storage */
     const storedDictString = localStorage.getItem("daysCompleted")
+    const titleString = localStorage.getItem("titleText")
+    const habitItemString = localStorage.getItem("habitItems")
     if (storedDictString) daysCompleted = JSON.parse(storedDictString);
+    if (titleString) habitTitleText = JSON.parse(titleString);
+    if (habitItemString) habitText = JSON.parse(habitItemString);
+
+    /* Set the currenlty selected habit and set its appropriate habit label  */
+    const habitTitle = document.getElementById("habitTitle");
+    habitTitle.textContent = habitText[currentHabit];
+
+    const maintTitle = document.getElementById("headerID");
+    maintTitle.textContent = habitTitleText;
+
+    /* Fill the edit content with current content */
+    const settingsTitle = document.getElementById("newTitleText");
+    settingsTitle.value = habitTitleText;
+    const settingsHabit1 = document.getElementById("habit1Text");
+    settingsHabit1.value = habitText[0];
+    const settingsHabit2 = document.getElementById("habit2Text");
+    settingsHabit2.value = habitText[1];
 
 
 
-    loadCalendar(currentMonth, currentYear)
+    loadCalendar(currentMonth, currentYear);
 }
 
 function loadCalendar(month, year) {
@@ -114,12 +151,57 @@ function paintClicked(event) {
     document.getElementById(color).classList.remove('selected');
     color = newColorID;
 
-    const colorName = document.getElementById("colorTitle");
-    if (color == "color1") colorName.textContent = "climbing";
-    else colorName.textContent = "gym";
+    const colorName = document.getElementById("habitTitle");
+    if (color == "color1") {
+        colorName.textContent = habitText[0];
+        currentHabit = 0;
+    }
+    else {
+        colorName.textContent = habitText[1];
+        currentHabit = 1;
+    }
 }
 
 function updateData() {
-    console.log("SMD")
+
+    /* CHANGE TITLE TEXT */
+    const newTitleText = document.getElementById("newTitleText");
+    const title = document.getElementById("headerID");
+    title.textContent = newTitleText.value;
+
+    /* CHANGE EACH HABIT TEXT */
+    for (i = 0; i < habitText.length; i++) {
+        const newHabitText = document.getElementById(habitTextIDs[i]);
+        habitText[i] = newHabitText.value;
+    }
+    /* Set the habit text to the new habit text  */
+    const habitTitle = document.getElementById("habitTitle");
+    habitTitle.textContent = habitText[currentHabit]
+
+    /* Store info in local storage*/
+    localStorage.setItem("habitItems", JSON.stringify(habitText));
+    localStorage.setItem("titleText", JSON.stringify(newTitleText.value));
+
+    /* Close the modal */
+    const modal = document.getElementById("settingsModal");
+    modal.style.opacity = "0";
+    setTimeout(function () {
+        modal.style.display = "none";
+    }, 300);
 }
 
+function openSettings() {
+    const modal = document.getElementById("settingsModal");
+    modal.style.display = "block";
+    setTimeout(function () {
+        modal.style.opacity = "1";
+    }, 100);
+}
+
+function closeModal() {
+    const modal = document.getElementById("settingsModal");
+    modal.style.opacity = "0";
+    setTimeout(function () {
+        modal.style.display = "none";
+    }, 300);
+}

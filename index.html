@@ -9,7 +9,7 @@
 </head>
 
 <body>
-    <h1 id="headerID">Updated Title #2</h1>
+    <h1 id="headerID"></h1>
 
     <div id="mainWraper">
         <div id="container">
@@ -35,32 +35,47 @@
             <div id="calendar"></div>
 
         </div>
-        <div id="paint">
-            <div class="color selected" id="color1"></div>
-            <div class="color" id="color2"></div>
+
+        <div id="optionsContainer">
+
+            <button id="openSettings">Edit</button>
+
+            <div id="habitSelectorContainer">
+                <div id="paint">
+                    <div class="color selected" id="color1"></div>
+                    <div class="color" id="color2"></div>
+
+                </div>
+                <div id="habitTitle"></div>
+            </div>
 
         </div>
-        <div id="colorTitle">Climbing</div>
 
         <br>
-        <form>
-            <label>Title Text</label>
-            <input type="text" placeholder="Enter text here">
-            <br>
-            <label>Habit #1</label>
-            <input type="text" placeholder="Habit">
-            <br>
-            <label>Habit #2</label>
-            <input type="text" placeholder="Habit 2">
-            <br>
-            <label>Habit #3</label>
-            <input type="text" placeholder="Habit 3">
-            <br>
-            <button type="button" onCLick="updateData()">Update</button>
-        </form>
+
+        <div id="settingsModal">
+            <div id="settingsContent">
+                <span id="closeModal" class="close">&times;</span>
+                <form id="newDataForm">
+                    <label>Title Text</label>
+                    <input type="text" id="newTitleText">
+                    <br>
+                    <label>Habit #1</label>
+                    <input type="text" id="habit1Text">
+                    <br>
+                    <label>Habit #2</label>
+                    <input type="text" id="habit2Text">
+                    <br>
+                    <br>
+                    <button type="button" onCLick="updateData()">Update</button>
+                </form>
+            </div>
+        </div>
+
     </div>
 
     <script src="scriptMe.js"></script>
+
 </body>
 
 </html>
